@@ -10,15 +10,15 @@ var isValid = function(s) {
     var stackS = [];
 
     for (i = 0; i < s.length; i++) {
-        if (stackS[i] == '(') {
+        if (s[i] == '(') {
             stackS.push(')');
-        } else if (stackS[i] == '[') {
-            stackS.push(']')
-        } else if (stackS[i] == '{') {
-            stackS.push('}')
-        } else if (stackS.pop != stackS[i]) {
+        } else if (s[i] == '[') {
+            stackS.push(']');
+        } else if (s[i] == '{') {
+            stackS.push('}');
+        } else if (stackS.pop() != s[i]) {
             return false;
         }
     }
-    return true;
+    if (stackS.length == 0) return true;
 };
